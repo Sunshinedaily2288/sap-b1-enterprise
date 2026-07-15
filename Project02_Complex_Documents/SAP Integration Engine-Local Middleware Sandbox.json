@@ -1,0 +1,226 @@
+{
+  "uuid": "4254643f-d17b-43ef-b94f-642b9859a404",
+  "lastMigration": 33,
+  "name": "SAP Integration Engine Local Middleware Sandbox",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 8098,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "e93d9bc4-1e74-46eb-884f-1a70ae1c6e73",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/sap/invoices/process",
+      "responses": [
+        {
+          "uuid": "1690bbfd-98c3-4a50-918a-59e570542b2d",
+          "body": "{}{\n  \"invoiceId\": \"INV-SAP-2026-9981A\",\n  \"vendorName\": \"Global Integration Logistics Ltd\",\n  \"amount\": 24500.50,\n  \"billingCurrency\": \"EUR\",\n  \"approvalStatus\": \"APPROVED\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b1c93266-b027-430d-80ca-8390f305d9c2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "b1s/v1/Orders",
+      "responses": [
+        {
+          "uuid": "d9142ce1-ae0d-49eb-b674-b47dfa7b5323",
+          "body": "{\n  \"DocEntry\": 451,\n  \"DocNum\": 1022,\n  \"CardCode\": \"C20000\",\n  \"DocDueDate\": \"2026-08-15\",\n  \"DocTotal\": 1927.50,\n  \"Comments\": \"Integrated Order via sap-b1-enterprise hybrid middleware engine.\",\n  \"DocumentLines\": [\n    {\n      \"LineNum\": 0,\n      \"ItemCode\": \"A00001\",\n      \"Quantity\": 10.0,\n      \"Price\": 150.00,\n      \"TaxCode\": \"EX\"\n    },\n    {\n      \"LineNum\": 1,\n      \"ItemCode\": \"A00002\",\n      \"Quantity\": 5.0,\n      \"Price\": 85.50,\n      \"TaxCode\": \"EX\"\n    }\n  ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Cookie",
+              "value": "B1SESSION=",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "64097633-a265-497a-ada4-3870733b3a13",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Cookie",
+              "value": "B1SESSION=",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "d36e1543-df32-40a9-85a7-d835ff82db19",
+          "body": "{\n  \"error\": \"Access Denied. Your browser is missing the SAP B1SESSION cookie header.\"\n}\n",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d8a97ea0-29b7-4327-860d-2890f36636ff",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "b1s/v1/Orders",
+      "responses": [
+        {
+          "uuid": "5618988d-b064-470b-8a61-2bfef4366271",
+          "body": "{\n  \"DocEntry\": 451,\n  \"DocNum\": 1022,\n  \"CardCode\": \"C20000\",\n  \"DocTotal\": 1927.50,\n  \"DocumentLines\": [\n    {\n      \"LineNum\": 0,\n      \"ItemCode\": \"A00001\",\n      \"Quantity\": 10.0\n    },\n    {\n      \"LineNum\": 1,\n      \"ItemCode\": \"A00002\",\n      \"Quantity\": 5.0\n    }\n  ]\n}\n",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Cookie",
+              "value": "B1SESSION=",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "e93d9bc4-1e74-46eb-884f-1a70ae1c6e73"
+    },
+    {
+      "type": "route",
+      "uuid": "b1c93266-b027-430d-80ca-8390f305d9c2"
+    },
+    {
+      "type": "route",
+      "uuid": "d8a97ea0-29b7-4327-860d-2890f36636ff"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
