@@ -1,0 +1,338 @@
+{
+  "info": {
+    "_postman_id": "097f65f6-2345-4db5-b2d9-a952e5e26154",
+    "name": "SAP-B1-Service-Layer-Mock",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55048345",
+    "_collection_link": "https://go.postman.co/collection/55048345-097f65f6-2345-4db5-b2d9-a952e5e26154?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "/b1s/v1/Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const cookieHeader = pm.response.headers.get(\"Set-Cookie\");\r",
+              "if (cookieHeader) {\r",
+              "    pm.environment.set(\"session_cookie\", cookieHeader);\r",
+              "}\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"CompanyDB\": \"SBODEMOUS\", \r\n  \"UserName\": \"manager\",\r\n  \"Password\": \"your_password\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{b1_url}}/b1s/v1/Login",
+          "host": [
+            "{{b1_url}}"
+          ],
+          "path": [
+            "b1s",
+            "v1",
+            "Login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{url}}//b1s/v1/Login",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "",
+                "b1s",
+                "v1",
+                "Login"
+              ]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "/b1s/v1/BusinessPartners('C20000')",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{b1_url}}/b1s/v1/BusinessPartners('C20000')?Cookie={{session_cookie}}",
+          "host": [
+            "{{b1_url}}"
+          ],
+          "path": [
+            "b1s",
+            "v1",
+            "BusinessPartners('C20000')"
+          ],
+          "query": [
+            {
+              "key": "Cookie",
+              "value": "{{session_cookie}}",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{url}}//b1s/v1/BusinessPartners('C20000')",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "",
+                "b1s",
+                "v1",
+                "BusinessPartners('C20000')"
+              ]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "/b1s/v1/BusinessPartners",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "{{session_cookie}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"CardCode\": \"{{card_code}}\",\r\n  \"CardName\": \"Integration Test Hub Partner\",\r\n  \"CardType\": \"cCustomer\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{b1_url}}/b1s/v1/BusinessPartners",
+          "host": [
+            "{{b1_url}}"
+          ],
+          "path": [
+            "b1s",
+            "v1",
+            "BusinessPartners"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{url}}//b1s/v1/BusinessPartners",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "",
+                "b1s",
+                "v1",
+                "BusinessPartners"
+              ]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "/b1s/v1/BusinessPartners('C99999')",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "{{session_cookie}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Notes\": \"Validated via Git-tracked Project 1 Mock Flow.\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{b1_url}}/b1s/v1/BusinessPartners('{{card_code}}')",
+          "host": [
+            "{{b1_url}}"
+          ],
+          "path": [
+            "b1s",
+            "v1",
+            "BusinessPartners('{{card_code}}')"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{url}}//b1s/v1/BusinessPartners('C99999')",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "",
+                "b1s",
+                "v1",
+                "BusinessPartners('C99999')"
+              ]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "/b1s/v1/Logout",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{b1_url}}/b1s/v1/Logout?Cookie={{session_cookie}}",
+          "host": [
+            "{{b1_url}}"
+          ],
+          "path": [
+            "b1s",
+            "v1",
+            "Logout"
+          ],
+          "query": [
+            {
+              "key": "Cookie",
+              "value": "{{session_cookie}}",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{url}}//b1s/v1/Logout",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "",
+                "b1s",
+                "v1",
+                "Logout"
+              ]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": "https://6d5f728b-3dcc-4e8a-98cd-201f53754291.mock.pstmn.io"
+    }
+  ]
+}
