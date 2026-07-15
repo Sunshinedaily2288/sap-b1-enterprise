@@ -11,7 +11,7 @@ A structured, 10-project implementation repository focused on mastering **SAP Bu
 *   **Project 4: B1 Event Sender & Webhooks**
 
 ### Phase 2: Integration Framework (B1if) Middleware
-*   **Project 5: Your First B1if Scenario**
+*   **Project 5: B1if Scenario**
 *   **Project 6: Advanced Mapping in B1if**
 *   **Project 7: Error Handling & Alert Management**
 
