@@ -1,28 +1,22 @@
 # SAP Business One Enterprise Integration Architecture
 
-A structured, 10-project implementation repository focused on mastering **SAP Business One (B1)** integration mechanics, the OData-based Service Layer, and hybrid cloud topologies connecting to **SAP BTP Integration Suite**.
+A 10-project implementation repository focused on SAP B1 Service Layer, B1if middleware, and SAP BTP integration.
 
-## 🗺️ Project Roadmap
+## 🗺 Project Roadmap
+* **Phase 1 (Service Layer/Webhooks):** Projects 1-4 (Project 3 Complete).
+* **Phase 2 (B1if Middleware):** Projects 5-7 (Project 6 Complete).
+* **Phase 3 (BTP Hybrid Cloud):** Projects 8-10.
 
-### Phase 1: Service Layer & Webhooks Development
-*   **Project 1: Basic Authentication and Object CRUD**  (Completed)
-*   **Project 2: Handling Complex B1 Documents** (Next)
-*   **Project 3: Service Layer Scripting**
-*   **Project 4: B1 Event Sender & Webhooks**
+## 🛠 Project Highlight: Project 03 (Service Layer Scripting)
+Implemented `custom_bp_extension.js` for server-side validation and automated B2B data compliance within the SAP B1 Service Layer engine.
 
-### Phase 2: Integration Framework (B1if) Middleware
-*   **Project 5: B1if Scenario**
-*   **Project 6: Advanced Mapping in B1if**
-*   **Project 7: Error Handling & Alert Management**
+## 🛠 Project Highlight: Project 06 (BTP Message Mapping)
+Deployed a Groovy-based, high-performance, zero-dependency data pipeline in SAP BTP to optimize warehouse order processing.
+* **Process:** `[ Incoming Payload ] ➡️ [ Groovy Data Engine ] ➡️ [ Receiver ]`
+* **Optimization:** Replaced graphical mapping with native Groovy `JsonSlurper` and `JsonOutput` to reduce latency and memory usage.
+* **Key Mappings:** Direct JSON mapping of `warehouse_customer_id`, `expected_delivery_date`, `product_sku`, and `ordered_units`.
 
-### Phase 3: SAP BTP Hybrid Cloud Integration
-*   **Project 8: Connecting BTP Integration Suite via Cloud Connector**
-*   **Project 9: Bi-directional Master Data Synchronization Engine**
-*   **Project 10: Real-time B1 Analytics Dashboard on BTP**
-
----
-
-## 🛠️ Environment Configuration & Tools
-*   **Platform:** Postman API Simulation Environment
-*   **API Specification:** SAP B1 Service Layer OData v4
-*   **Session Management:** Cookie-based (`B1SESSION` + `ROUTEID`)
+## ⚙️ Environment Configuration & Tools
+* **Platform:** Postman API & Mockoon Developer Proxy.
+* **API/Middleware:** SAP B1 Service Layer OData v4 / SAP BTP Cloud Integration.
+* **Session Management:** `B1SESSION` + `ROUTEID`.
