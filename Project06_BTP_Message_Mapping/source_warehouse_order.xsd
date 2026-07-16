@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://w3.org" targetNamespace="http://sap.com" xmlns:tns="http://sap.com" elementFormDefault="qualified">
+    <element name="root">
+        <complexType>
+            <sequence>
+                <element name="warehouse_customer_id" type="string"/>
+                <element name="expected_delivery_date" type="string"/>
+                <element name="product_sku" type="string"/>
+                <element name="ordered_units" type="integer"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>
