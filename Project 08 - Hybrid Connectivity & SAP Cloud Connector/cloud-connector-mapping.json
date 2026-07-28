@@ -1,0 +1,28 @@
+{
+  "subaccount_configuration": {
+    "account_region": "://ondemand.com",
+    "subaccount_id": "78458fbc-35e2-4698-b31b-eb3e2beabb57",
+    "display_name": "Matharsa Integration Trial Space"
+  },
+  "access_control_mappings": [
+    {
+      "backend_type": "ABAP / Java / REST Ingestion System",
+      "protocol": "HTTP",
+      "internal_host": "localhost",
+      "internal_port": 8081,
+      "virtual_host": "virtual-erp-backend.internal",
+      "virtual_port": 8080,
+      "principal_propagation": "None (Basic/Token Pass-Through)"
+    }
+  ],
+  "whitelisted_resources": [
+    {
+      "url_path_prefix": "/api/v1/erp/inventory/",
+      "access_policy": "Path and All Sub-Branches Allowed"
+    },
+    {
+      "url_path_prefix": "/api/v1/erp/masterdata/",
+      "access_policy": "Strict Path Match Only"
+    }
+  ]
+}
