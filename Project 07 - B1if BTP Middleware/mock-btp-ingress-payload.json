@@ -1,0 +1,17 @@
+{
+  "BTP_Payload_Header": {
+    "OrderUniqueID": "88229",
+    "SAPB1DocNumber": "2026-007"
+  },
+  "BTP_Payload_Customer": {
+    "BusinessPartnerID": "CUST-MY-KL-09"
+  },
+  "BTP_Payload_Totals": {
+    "GrossAmountAmount": 15750.00,
+    "Currency": "MYR"
+  },
+  "BTP_Payload_Meta": {
+    "TransactionTimestamp": "2026-07-29T11:45:00Z",
+    "IntegrationEngineSource": "SAP_B1if_V2"
+  }
+}

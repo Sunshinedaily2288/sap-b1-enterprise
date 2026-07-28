@@ -1,0 +1,30 @@
+<b1if-integration-flow-atom id="B1ToBTPInboundGateway">
+    <!-- Connectivity Setup Targeting BTP API Layer via Cloud Connector Tunnel -->
+    <connectivity-properties>
+        <protocol>HTTP</protocol>
+        <endpoint-host>virtual-btp-gateway.internal</endpoint-host>
+        <endpoint-port>8080</endpoint-port>
+        <path>/http/v1/b1/salesorders/ingest</path>
+        <authentication-mode>OAuth2</authentication-mode>
+    </connectivity-properties>
+
+    <!-- Data Transformation & Payload Serialization Mapping Block -->
+    <transformation-mapping>
+        <source-type>B1_Object_SalesOrder</source-type>
+        <target-format>XML_Standard_Payload</target-format>
+        <fields-mapping>
+            <map source="DocEntry" target="BTP_Payload_Header/OrderUniqueID"/>
+            <map source="DocNum" target="BTP_Payload_Header/SAPB1DocNumber"/>
+            <map source="CardCode" target="BTP_Payload_Customer/BusinessPartnerID"/>
+            <map source="DocTotal" target="BTP_Payload_Totals/GrossAmountAmount"/>
+            <map source="DocDate" target="BTP_Payload_Meta/TransactionTimestamp"/>
+        </fields-mapping>
+    </transformation-mapping>
+
+    <!-- Fallback Queue Error Infrastructure Configuration -->
+    <exception-handling-strategy>
+        <on-routing-failure>RetryQueue_B1if_DeadLetter</on-routing-failure>
+        <max-retry-attempts>3</max-retry-attempts>
+        <alert-notification-flag>true</alert-notification-flag>
+    </exception-handling-strategy>
+</b1if-integration-flow-atom>
