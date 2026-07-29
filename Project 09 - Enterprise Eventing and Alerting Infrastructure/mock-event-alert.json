@@ -1,0 +1,16 @@
+{
+  "Event_Header": {
+    "EventID": "EVT-88229F96",
+    "EventType": "INTEGRATION_PIPELINE_ERROR",
+    "Severity": "CRITICAL"
+  },
+  "Failure_Context": {
+    "TargetSystem": "SAP_B1if_Cloud_Gateway",
+    "FailedStepIdentifier": "Request_Reply_1_CloudConnectorTunnel",
+    "ErrorMessageDetails": "HTTP Route Failure: Host virtual-erp-backend.internal:8080 refused connection on local port 8081."
+  },
+  "System_Metadata": {
+    "TenantID": "Matharsa_BTP_Trial_Tenant_AP21",
+    "Timestamp": "2026-07-29T13:10:00Z"
+  }
+}
